@@ -19,17 +19,17 @@ As a result of using Logistc Regression, I was able to get a training accuracy o
 
 String Indexer:
 - Gender_indexer (inputCol="gender")
-- User_indexer = (inputCol="userAgent")
-- Page_indexer = (inputCol="page")
-- indexer = (inputCol="Churn")
+- User_indexer (inputCol="userAgent")
+- Page_indexer (inputCol="page")
+- indexer (inputCol="Churn")
 
 One Hot Encoding: 
-- Gender_encoder = OneHotEncoder(inputCol='Gender_Index', outputCol='Gender_Vec')
-- User_encoder = OneHotEncoder(inputCol='User_Index', outputCol='User_Vec')
-- Page_encoder = OneHotEncoder(inputCol='Page_Index', outputCol='Page_Vec')
+- Gender_encoder (inputCol='Gender_Index')
+- User_encoder (inputCol='User_Index')
+- Page_encoder (inputCol='Page_Index')
 
 Vector Assembler:
-- assembler = VectorAssembler(inputCols=["Gender_Vec", "User_Vec", "Page_Vec", "status"], outputCol="features")
+- assembler (inputCols=["Gender_Vec", "User_Vec", "Page_Vec", "status"])
 
 ## Acknowledgements
 The data was taken from the following (https://s3.amazonaws.com/video.udacity-data.com/topher/2018/December/5c1d6681_medium-sparkify-event-data/medium-sparkify-event-data.json)
