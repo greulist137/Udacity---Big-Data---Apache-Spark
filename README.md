@@ -14,7 +14,22 @@ For a  fictional music streaming service (Sparkify), we are interested in seeing
 - Sparkify.ipynb - Notebook used for initial analysis / training.  Used a small subset (128MB) for this analysis.  When performed on the IBM platform, the entire dataset (12GB) will be used.
 - README.md - The file you are reading now
 
-## Summary of Analysis
+## Feature Engineering
+As a result of using Logistc Regression, I was able to get a training accuracy of around 99.99% and a testing accuracy of around 99.98%.  This was due to the following transformations to the data:
+
+String Indexer:
+- Gender_indexer (inputCol="gender")
+- User_indexer = (inputCol="userAgent")
+- Page_indexer = (inputCol="page")
+- indexer = (inputCol="Churn")
+
+One Hot Encoding: 
+- Gender_encoder = OneHotEncoder(inputCol='Gender_Index', outputCol='Gender_Vec')
+- User_encoder = OneHotEncoder(inputCol='User_Index', outputCol='User_Vec')
+- Page_encoder = OneHotEncoder(inputCol='Page_Index', outputCol='Page_Vec')
+
+Vector Assembler:
+- assembler = VectorAssembler(inputCols=["Gender_Vec", "User_Vec", "Page_Vec", "status"], outputCol="features")
 
 ## Acknowledgements
 The data was taken from the following (https://s3.amazonaws.com/video.udacity-data.com/topher/2018/December/5c1d6681_medium-sparkify-event-data/medium-sparkify-event-data.json)
